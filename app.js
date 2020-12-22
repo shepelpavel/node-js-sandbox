@@ -1,8 +1,11 @@
-const http = require("http");
+const http = require('http');
+const host = '127.0.0.1';
+const port = 8080;
+
 http.createServer(function (request, response) {
 
-    response.end("Hello NodeJS!");
+    response.end('Hello NodeJS!');
 
-}).listen(8080, "127.0.0.1", function () {
-    console.log("Сервер начал прослушивание запросов на порту 8080");
+}).listen(port, host, function () {
+    console.log('run server on ' + host + ':' + port);
 });
