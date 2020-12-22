@@ -1,11 +1,13 @@
-const http = require('http');
-const host = '127.0.0.1';
-const port = 8080;
+const express = require('express')
+const app = express()
+const port = 8080
 
-http.createServer(function (request, response) {
-
-    response.end('Hello NodeJS!');
-
-}).listen(port, host, function () {
-    console.log('run server on ' + host + ':' + port);
-});
+app.get('/', (request, response) => {
+    response.send('Hello from Express!')
+})
+app.listen(port, (err) => {
+    if (err) {
+        return console.log('something bad happened', err)
+    }
+    console.log(`server is listening on ${port}`)
+})
